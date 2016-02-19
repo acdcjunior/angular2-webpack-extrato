@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//cdn.jsdelivr.net/pouchdb/5.2.1/pouchdb.min.js"></script>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+    <script>
+        var db = new PouchDB('https://somewhere/');
+        //db.destroy();
+        db.bulkDocs([
+            {"_id": "1", "title": "Rambo",        "year": 2008, "genre": "Action"},
+            {"_id": "2", "title": "Forrest Gump", "year": 1994, "genre": "Drama"},
+            {"_id": "3", "title": "Gladiator",    "year": 2000, "genre": "Action"},
+            {"_id": "4", "title": "The Mask",     "year": 1994, "genre": "Comedy"}
+        ]).then(function () {
+
+            var map = function(doc) {
+                emit(doc.genre, 1);
+            };
+
+            var reduce = function(keys, values, rereduce) {
+                return sum(values);
+            };
+            // if you are just summing (like the reduce function above is), it is better to use the build-in sum
+            reduce = "_sum";
+
+            db.allDocs({include_docs: true}, function(err, response) {
+                console.log(JSON.stringify(response.rows));
+                /* The result:
+                 [
+                 {"key":"Action", "value":2},
+                 {"key":"Comedy", "value":1},
+                 {"key":"Drama",  "value":1}
+                 ]
+                 */
+            });
+        });
+    </script>
+</head>
+<body>
+    Hey yo!
+</body>
+</html>
