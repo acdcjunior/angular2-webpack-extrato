@@ -35,28 +35,24 @@
     "test": "karma start",
     "ci": "npm run e2e && npm run test",
     "docs": "typedoc --options typedoc.json --exclude **/*.spec.ts ./src/",
-    "dev-start": "npm run server",
+    "start": "npm run server",
     "typings-install": "typings install",
-    "dev-postinstall": "npm run typings-install",
+    "postinstall": "npm run typings-install",
     "preversion": "npm test",
     "version": "npm run build",
-    "postversion": "git push && git push --tags",
-
-    "bolinha": "os dois abaixo foram criados por mim, note os dev-start e dev-postinstall acima",
-    "postinstall": "npm run build:prod",
-    "start": "node start.js"
+    "postversion": "git push && git push --tags"
+    ,
+    "hk-postinstall": "npm run build:prod",
+    "hk-start": "node start.js"
   },
-  "//": [
-    "reflect-metadata", "0.1.2"
-  ],
   "dependencies": {
     "angular2": "2.0.0-beta.9",
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.33.3",
     "es7-reflect-metadata": "^1.6.0",
     "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.5.15",
-
+    "zone.js": "0.5.15"
+    ,
     "express": "4.13.3"
   },
   "devDependencies": {
