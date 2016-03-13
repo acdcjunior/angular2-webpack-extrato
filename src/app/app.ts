@@ -1,10 +1,11 @@
 /*
  * Angular 2 decorators and services
  */
-import {Component} from 'angular2/core';
-import {RouteConfig, Router} from 'angular2/router';
-
-import {Home} from './home/home';
+import {Component} from "angular2/core";
+import {RouteConfig} from "angular2/router";
+import {Home} from "./home/home";
+import {Howdy} from "./howdy/howdy";
+import {PRP} from "./prp/prp";
 
 /*
  * App Component
@@ -42,7 +43,13 @@ import {Home} from './home/home';
             <a [routerLink]=" ['Home'] ">Home</a>
           </li>
           <li router-active>
+            <a [routerLink]=" ['Howdy'] ">Howdy</a>
+          </li>
+          <li router-active>
             <a [routerLink]=" ['About'] ">About</a>
+          </li>
+          <li router-active>
+            <a [routerLink]=" ['PRP'] ">PRP</a>
           </li>
         </ul>
       </nav>
@@ -65,6 +72,9 @@ import {Home} from './home/home';
   { path: '/home',  name: 'Home',  component: Home },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   { path: '/about', name: 'About', loader: () => require('es6-promise!./about/about')('About') },
+
+  { path: '/howdy', name: 'Howdy', component: Howdy },
+  { path: '/prp/...', name: 'PRP', component: PRP },
 ])
 export class App {
   angularclassLogo = 'assets/img/angularclass-avatar.png';

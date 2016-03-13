@@ -1,6 +1,6 @@
-import {Injectable} from 'angular2/core';
-import {Http, URLSearchParams} from 'angular2/http';
-import 'rxjs/add/operator/map';
+import {Injectable} from "angular2/core";
+import {Http, URLSearchParams} from "angular2/http";
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class Github {

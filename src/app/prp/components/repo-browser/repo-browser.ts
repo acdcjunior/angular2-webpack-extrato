@@ -1,14 +1,13 @@
-import {Component} from 'angular2/core';
-import {Router, RouteConfig, Route, ROUTER_DIRECTIVES} from 'angular2/router';
-
-import {RepoList} from '../repo-list/repo-list';
-import {RepoDetail} from '../repo-detail/repo-detail';
-import {Github} from '../../services/github';
+import {Component} from "angular2/core";
+import {Router, RouteConfig, Route, ROUTER_DIRECTIVES} from "angular2/router";
+import {RepoList} from "../repo-list/repo-list";
+import {RepoDetail} from "../repo-detail/repo-detail";
+import {Github} from "../../services/github";
 
 @Component({
   selector: 'repo-browser',
-  templateUrl: 'app/components/repo-browser/repo-browser.html',
-  styleUrls: ['app/components/repo-browser/repo-browser.css'],
+  template: require('./repo-browser.html'),
+  styles: [ require('./repo-browser.css') ],
   providers: [Github],
   directives: [ROUTER_DIRECTIVES],
   pipes: []
