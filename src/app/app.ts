@@ -1,9 +1,11 @@
 /*
  * Angular 2 decorators and services
  */
-import {Component} from "angular2/core";
-import {RouteConfig} from "angular2/router";
-import {Home} from "./home/home";
+import {Component} from 'angular2/core';
+import {RouteConfig, Router} from 'angular2/router';
+
+import {Home} from './home/home';
+
 import {Howdy} from "./howdy/howdy";
 import {PRP} from "./prp/prp";
 
@@ -43,10 +45,10 @@ import {PRP} from "./prp/prp";
             <a [routerLink]=" ['Home'] ">Home</a>
           </li>
           <li router-active>
-            <a [routerLink]=" ['Howdy'] ">Howdy</a>
+            <a [routerLink]=" ['About'] ">About</a>
           </li>
           <li router-active>
-            <a [routerLink]=" ['About'] ">About</a>
+            <a [routerLink]=" ['Howdy'] ">Howdy</a>
           </li>
           <li router-active>
             <a [routerLink]=" ['PRP'] ">PRP</a>
