@@ -5,6 +5,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, Router} from 'angular2/router';
 
 import {Home} from './home';
+import {AppState} from './app.service';
 
 import {Howdy} from "./howdy/howdy";
 import {PRP} from "./prp/prp";
@@ -67,6 +68,8 @@ import {PRP} from "./prp/prp";
         <img [src]="angularclassLogo" width="10%">
       </div>
     </footer>
+
+    <pre>this.state = {{ state | json }}</pre>
   `
 })
 @RouteConfig([
@@ -82,8 +85,17 @@ export class App {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
-  constructor() {
+
+  constructor(public appState: AppState) {}
+
+  get state() {
+    return this.appState.get();
   }
+
+  ngOnInit() {
+    console.log('Initial App State', this.state);
+  }
+
 }
 
 /*
