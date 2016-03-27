@@ -131,7 +131,7 @@ module.exports = {
       //
       // See: https://github.com/webpack/source-map-loader
       {test: /\.js$/, loader: 'source-map-loader', exclude: [
-        // souremap problems with these packages
+        // these packages have problems with their sourcemaps
         helpers.root('node_modules/rxjs'),
         helpers.root('node_modules/@angular2-material')
       ]}
