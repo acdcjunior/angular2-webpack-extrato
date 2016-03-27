@@ -11,5 +11,7 @@
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#8cf8164641be73e8f1e652c2a5b967c7210b6729",
     "selenium-webdriver": "github:DefinitelyTyped/DefinitelyTyped/selenium-webdriver/selenium-webdriver.d.ts#a83677ed13add14c2ab06c7325d182d0ba2784ea",
     "webpack": "github:DefinitelyTyped/DefinitelyTyped/webpack/webpack.d.ts#95c02169ba8fa58ac1092422efbd2e3174a206f4"
+    ,
+    "pouchdb": "github:AGBrown/pouchdb.d.ts/pouchdb.d.ts#14576a55aa76dceb59c23ca5be0f53e6fa93e50d"
   }
 }

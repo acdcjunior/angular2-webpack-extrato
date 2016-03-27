@@ -11,6 +11,7 @@ var helpers = require('./helpers');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+var ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
 /**
  * Webpack Constants
@@ -218,7 +219,12 @@ module.exports = {
     //
     // See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     // NOTE: when adding more properties make sure you include them in custom-typings.d.ts
-    new webpack.DefinePlugin({'ENV': JSON.stringify(METADATA.ENV), 'HMR': HMR})
+    new webpack.DefinePlugin({'ENV': JSON.stringify(METADATA.ENV), 'HMR': HMR, 'POUCHDB_URL': JSON.stringify(process.env.POUCHDB_URL)}),
+
+    new ProvidePlugin({
+      PouchDB: 'pouchdb',
+      pouchdb: 'pouchdb'
+    })
 
   ],
 

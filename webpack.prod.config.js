@@ -256,7 +256,7 @@ module.exports = {
     //
     // See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     // NOTE: when adding more properties make sure you include them in custom-typings.d.ts
-    new DefinePlugin({'ENV': JSON.stringify(METADATA.ENV), 'HMR': false}),
+    new DefinePlugin({'ENV': JSON.stringify(METADATA.ENV), 'HMR': false, 'POUCHDB_URL': JSON.stringify(process.env.POUCHDB_URL)}),
 
     // Plugin: UglifyJsPlugin
     // Description: Minimize all JavaScript output of chunks.
